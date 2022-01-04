@@ -37,6 +37,7 @@ namespace FreeCourse.Services.Catalog
                 return sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
             });
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<ICourseService, CourseService>();
 
 
             services.AddSwaggerGen(c =>

@@ -16,7 +16,7 @@ namespace FreeCourse.Services.Catalog.Services
         private readonly IMongoCollection<Category> _categoryCollection;
         private readonly IMapper _mapper;
 
-        internal CategoryService(IMapper mapper, IDatabaseSettings databaseSettings)
+        public CategoryService(IMapper mapper, IDatabaseSettings databaseSettings)
         {
             var client = new MongoClient(databaseSettings.ConnectionString);
             var database = client.GetDatabase(databaseSettings.DatabaseName);
@@ -31,11 +31,12 @@ namespace FreeCourse.Services.Catalog.Services
             return Response<List<CategoryDTO>>.Success(_mapper.Map<List<CategoryDTO>>(categories), 200);
         }
 
-        public async Task<Response<List<CategoryDTO>>> CreateAsync(Category category)
+        public async Task<Response<CategoryDTO>> CreateAsync(CategoryDTO categoryDTO)
         {
+            var category = _mapper.Map<Category>(categoryDTO);
             await _categoryCollection.InsertOneAsync(category);
 
-            return Response<List<CategoryDTO>>.Success(_mapper.Map<List<CategoryDTO>>(category), 200);
+            return Response<CategoryDTO>.Success(_mapper.Map<CategoryDTO>(category), 200);
         }
 
         public async Task<Response<CategoryDTO>> GetByIdAsync(string id)
@@ -45,7 +46,6 @@ namespace FreeCourse.Services.Catalog.Services
             {
                 return Response<CategoryDTO>.Fail("Category not found", 404);
             }
-            await _categoryCollection.InsertOneAsync(category);
 
             return Response<CategoryDTO>.Success(_mapper.Map<CategoryDTO>(category), 200);
         }

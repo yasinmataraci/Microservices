@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace FreeCourse.Services.Catalog.Mapping
 {
-    internal class GeneralMapping : Profile
+    public class GeneralMapping : Profile
     {
-        internal GeneralMapping()
+        public GeneralMapping()
         {
             CreateMap<Course, CourseDTO>().ReverseMap();
             CreateMap<Category, CategoryDTO>().ReverseMap();
