@@ -26,6 +26,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PhotoStock", "PhotoStock", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCourse.Services.PhotoStock", "Services\PhotoStock\FreeCourse.Services.PhotoStock\FreeCourse.Services.PhotoStock.csproj", "{586780F3-35F0-483E-A9A8-B03E5A6657D8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{C05617D0-0F67-45E4-AA52-B3A19FF37E5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCourse.Services.Basket", "Services\Basket\FreeCourse.Services.Basket\FreeCourse.Services.Basket.csproj", "{3CE166BC-9928-41DF-A4BB-0C169F74523D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,10 @@ Global
 		{586780F3-35F0-483E-A9A8-B03E5A6657D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{586780F3-35F0-483E-A9A8-B03E5A6657D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{586780F3-35F0-483E-A9A8-B03E5A6657D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CE166BC-9928-41DF-A4BB-0C169F74523D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE166BC-9928-41DF-A4BB-0C169F74523D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE166BC-9928-41DF-A4BB-0C169F74523D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE166BC-9928-41DF-A4BB-0C169F74523D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +67,8 @@ Global
 		{3F436FC8-B070-43F5-B995-B880E772AC49} = {A6A6DAD3-0A7F-4A4A-A5A6-EBA736D85A5A}
 		{EA8FACD1-D6FC-42E9-8E8D-BFA1812E0DCF} = {C65D033F-C7AA-424F-A458-B68EEB9EBB52}
 		{586780F3-35F0-483E-A9A8-B03E5A6657D8} = {EA8FACD1-D6FC-42E9-8E8D-BFA1812E0DCF}
+		{C05617D0-0F67-45E4-AA52-B3A19FF37E5F} = {C65D033F-C7AA-424F-A458-B68EEB9EBB52}
+		{3CE166BC-9928-41DF-A4BB-0C169F74523D} = {C05617D0-0F67-45E4-AA52-B3A19FF37E5F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3957F8D9-21C8-442D-9BD7-084A372B4955}
