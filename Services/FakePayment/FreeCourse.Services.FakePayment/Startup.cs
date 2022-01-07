@@ -1,13 +1,9 @@
-using FreeCourse.Services.Order.Infrastructure;
-using FreeCourse.Shared.Services;
-using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -19,7 +15,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FreeCourse.Services.Order.API
+namespace FreeCourse.Services.FakePayment
 {
     public class Startup
     {
@@ -40,26 +36,15 @@ namespace FreeCourse.Services.Order.API
                 opt.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
             });
 
-            services.AddDbContext<OrderDbContext>(opt =>
-            {
-                opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), configure => {
-                    configure.MigrationsAssembly("FreeCourse.Services.Order.Infrastructure");
-                });
-            });
-
-            services.AddHttpContextAccessor();
-            services.AddMediatR(typeof(Application.Handlers.CreateOrderCommandHandler).Assembly);
-            services.AddScoped<ISharedIdentityService, SharedIdentityService>();
-
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FreeCourse.Services.Order.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FreeCourse.Services.FakePayment", Version = "v1" });
             });
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.Authority = Configuration["IdentityServerUrl"];
-                options.Audience = "resource_order";
+                options.Audience = "resource_fakepayment";
                 options.RequireHttpsMetadata = false;
             });
         }
@@ -71,7 +56,7 @@ namespace FreeCourse.Services.Order.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FreeCourse.Services.Order.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FreeCourse.Services.FakePayment v1"));
             }
 
             app.UseRouting();
